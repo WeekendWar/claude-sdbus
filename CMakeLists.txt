@@ -67,11 +67,7 @@ endif()
 
 # Find required packages
 find_package(PkgConfig REQUIRED)
-
-# Find sdbus-c++
 pkg_check_modules(SDBUS_CPP REQUIRED IMPORTED_TARGET sdbus-c++)
-
-# Find threading library
 find_package(Threads REQUIRED)
 
 # Create executable
