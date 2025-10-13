@@ -410,7 +410,6 @@ public:
       auto charProxy = sdbus::createProxy(*connection,
                                           sdbus::ServiceName(BLUEZ_SERVICE),
                                           sdbus::ObjectPath{it->second});
-      charProxy->callMethod("StartNotify").onInterface(GATT_CHAR_INTERFACE);
 
       std::cout << "Notifications enabled for " << characteristicUUID
                 << std::endl;
@@ -430,6 +429,8 @@ public:
             std::cout << std::endl;
           }
         });
+
+      charProxy->callMethod("StartNotify").onInterface(GATT_CHAR_INTERFACE);
     }
     catch (const sdbus::Error& e)
     {
